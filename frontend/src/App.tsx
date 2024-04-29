@@ -16,6 +16,7 @@ import { MessageWithFiles } from "./utils/formTypes.ts";
 import { useNavigate } from "react-router-dom";
 import { useThreadAndAssistant } from "./hooks/useThreadAndAssistant.ts";
 import { Message } from "./types.ts";
+import { Logo } from "./components/Logo.tsx";
 
 function App(props: { edit?: boolean }) {
   const navigate = useNavigate();
@@ -133,6 +134,10 @@ function App(props: { edit?: boolean }) {
       sidebarOpen={sidebarOpen}
       setSidebarOpen={setSidebarOpen}
       sidebar={
+        <>
+        <Logo/>
+        <br />
+        <hr />
         <ChatList
           chats={chats}
           configs={configs}
@@ -140,6 +145,7 @@ function App(props: { edit?: boolean }) {
           deleteChat={deleteChat}
           enterConfig={selectConfig}
         />
+        </>
       }
     >
       {currentChat && assistantConfig && (
